@@ -148,3 +148,49 @@ class Product {
     required this.delivery,
   });
 }
+
+////////////// terms /////////////////
+class TermSection {
+  final String? number; // رقم القسم زي "1"
+  final String title; // عنوان القسم
+  final String? body; // نص الفقرة
+  final List<String>? bullets; // لو فيه نقاط
+  final List<String>? subSections; // لو فيه عناوين فرعية
+  final bool isWarning; // هل صندوق تحذير
+
+  TermSection({
+    this.number,
+    required this.title,
+    this.body,
+    this.bullets,
+    this.subSections,
+    this.isWarning = false,
+  });
+}
+//////////// privacy //////////////
+
+class PolicyItem {
+  final String text;
+  final IconData icon;
+  final Color iconColor;
+
+  PolicyItem({
+    required this.text,
+    this.icon = Icons.check_circle,
+    this.iconColor = Colors.green,
+  });
+}
+
+class PolicySectionModel {
+  final IconData icon;
+  final Color iconColor;
+  final String title;
+  final List<PolicyItem> items;
+
+  PolicySectionModel({
+    required this.icon,
+    required this.iconColor,
+    required this.title,
+    required this.items,
+  });
+}

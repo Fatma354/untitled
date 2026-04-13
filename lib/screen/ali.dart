@@ -69,9 +69,13 @@ class Custom extends StatelessWidget {
       child: SafeArea(
         child: Container(
           color: Colors.white,
-          child: ListView(
-            padding: const EdgeInsets.all(14),
-            children: [
+          child: CustomScrollView(
+            slivers: [
+              SliverPadding(
+                padding: const EdgeInsets.all(14),
+                sliver: SliverList(
+                  delegate: SliverChildListDelegate(
+                    [
               Row(
                 children: [
                   Stack(
@@ -232,6 +236,10 @@ class Custom extends StatelessWidget {
 
                 return listTile;
               }),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -132,10 +132,7 @@ class ProductView extends StatelessWidget {
                       Expanded(
                         child: ElevatedButton.icon(
                           onPressed: () {},
-                          icon: const Icon(
-                            Icons.flash_on,
-                            size: 20, // كبرناها شوية
-                          ),
+                          icon: const Icon(Icons.flash_on, size: 20),
                           label: const Text(
                             "Buy Now",
                             style: TextStyle(

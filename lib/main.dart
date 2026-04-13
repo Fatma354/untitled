@@ -3,6 +3,9 @@ import 'package:untitled/prject2/FilterPage.dart';
 import 'package:untitled/prject2/cartpage.dart';
 import 'package:untitled/prject2/checkout_screen.dart';
 import 'package:untitled/prject2/Product%20View.dart';
+import 'package:untitled/project3/Medical.dart';
+import 'package:untitled/project3/mmm.dart';
+import 'package:untitled/project3/nnn.dart';
 import 'package:untitled/screen/Add_pyment.dart';
 import 'package:untitled/screen/Delete_Account.dart';
 import 'package:untitled/screen/Doctor.dart';
@@ -14,7 +17,7 @@ import 'package:untitled/screen/chang_password.dart';
 import 'package:untitled/prject2/Filter1.dart';
 import 'package:untitled/screen/insulin.dart';
 import 'package:untitled/screen/insulin_unit.dart';
-import 'package:untitled/screen/securty_setting.dart';
+import 'package:untitled/screen/setting.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //  home: CartPage(),
-      home: Billing(),
+      home: Medical(),
     );
   }
 }

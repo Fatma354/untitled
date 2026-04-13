@@ -17,7 +17,7 @@ class EditProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(237, 255, 255, 255),
+      backgroundColor: Color(0xFFF4F6F8),
       body: Center(
         child: Container(
           width: 330,
@@ -25,6 +25,14 @@ class EditProfile extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.3),
+                spreadRadius: 2,
+                blurRadius: 8,
+                offset: Offset(0, 4),
+              ),
+            ],
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -118,4 +126,3 @@ class EditProfile extends StatelessWidget {
     );
   }
 }
-//===========
