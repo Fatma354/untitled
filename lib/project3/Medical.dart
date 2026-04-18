@@ -1,8 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/model/model.dart';
 
 class Medical extends StatelessWidget {
   const Medical({super.key});
 
+  final List<MedicalInfo> medicalList = const [
+    MedicalInfo(
+      icon: Icons.add_circle_outline,
+      title: "1. No Medical Advice",
+      desc:
+          "The content, text, graphics, and images provided on SugarWise are for informational purposes only. The content is not intended to be a substitute for professional medical advice...",
+    ),
+    MedicalInfo(
+      icon: Icons.people_outline,
+      title: "2. No Doctor-Patient Relationship",
+      desc:
+          "Use of the SugarWise platform does not create a doctor-patient relationship. Such a relationship is only established when you actually visit a healthcare provider...",
+    ),
+    MedicalInfo(
+      icon: Icons.check_circle_outline,
+      title: "3. Accuracy of Provider Information",
+      desc:
+          "While we verify the basic credentials of doctors listed on our platform, SugarWise does not guarantee the accuracy of doctor profiles, available hours, or fees...",
+    ),
+    MedicalInfo(
+      icon: Icons.settings_outlined,
+      title: "4. Limitation of Liability",
+      desc:
+          "By using this service, you agree that SugarWise shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use the service...",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +66,6 @@ class Medical extends StatelessWidget {
                       ),
                       const SizedBox(height: 25),
 
-                      // الكارت الأبيض الرئيسي
                       Container(
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
@@ -83,31 +109,14 @@ class Medical extends StatelessWidget {
                               child: Divider(),
                             ),
 
-                            // النقاط الأربعة
-                            _buildInfoSection(
-                              icon: Icons.add_circle_outline,
-                              title: "1. No Medical Advice",
-                              desc:
-                                  "The content, text, graphics, and images provided on SugarWise are for informational purposes only. The content is not intended to be a substitute for professional medical advice...",
-                            ),
-                            _buildInfoSection(
-                              icon: Icons.people_outline,
-                              title: "2. No Doctor-Patient Relationship",
-                              desc:
-                                  "Use of the SugarWise platform does not create a doctor-patient relationship. Such a relationship is only established when you actually visit a healthcare provider...",
-                            ),
-                            _buildInfoSection(
-                              icon: Icons.check_circle_outline,
-                              title: "3. Accuracy of Provider Information",
-                              desc:
-                                  "While we verify the basic credentials of doctors listed on our platform, SugarWise does not guarantee the accuracy of doctor profiles, available hours, or fees...",
-                            ),
-                            _buildInfoSection(
-                              icon: Icons.settings_outlined,
-                              title: "4. Limitation of Liability",
-                              desc:
-                                  "By using this service, you agree that SugarWise shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use the service...",
-                            ),
+                            // استدعاء القائمة باستخدام Map
+                            ...medicalList.map((info) {
+                              return _buildInfoSection(
+                                icon: info.icon,
+                                title: info.title,
+                                desc: info.desc,
+                              );
+                            }).toList(),
                           ],
                         ),
                       ),
@@ -116,45 +125,43 @@ class Medical extends StatelessWidget {
                 ),
               ),
 
-              // الجزء السفلي (اللوجو والزرار)
               Container(
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   children: [
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.network(
-                          'https://cdn-icons-png.flaticon.com/512/822/822143.png',
-                          width: 40,
-                          height: 40,
-                        ), // استبدله بلوجو SugarWise
+                        Image.asset('assets/logo.png', width: 30, height: 30),
                         const SizedBox(width: 10),
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "SugarWise",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                        const Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "SugarWise",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            Text(
-                              "Smart Diabetes Management",
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 10,
+                              Text(
+                                "Smart Diabetes Management",
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 10,
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 7),
-                            Text(
-                              "SugarWise is a revolutionary platform helping \n  diabetic patients, especially children, control bloo\n sugar levels through intelligent monitoring and food \n intake calculation",
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 10,
+                              SizedBox(height: 7),
+                              Text(
+                                "SugarWise is a revolutionary platform helping diabetic patients, especially children, control blood sugar levels through intelligent monitoring and food intake calculation",
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontSize: 10,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ],
                     ),

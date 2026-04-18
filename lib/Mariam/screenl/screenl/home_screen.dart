@@ -16,10 +16,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getActiveScreen() {
     switch (currentIndex) {
-      case 0: return const MemoryScreen();
-      case 1: return const TriviaScreen();
-      case 2: return const RelaxScreen();
-      default: return const MemoryScreen();
+      case 0:
+        return const MemoryScreen();
+      case 1:
+        return const TriviaScreen();
+      case 2:
+        return const RelaxScreen();
+      default:
+        return const MemoryScreen();
     }
   }
 
@@ -28,9 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F9FB),
       body: SafeArea(
-        child: Column( 
+        child: Column(
           children: [
-            
             TopSection(
               onSelected: (index) {
                 setState(() {
@@ -41,9 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
             const SizedBox(height: 10),
 
-          
-            Expanded( 
-              child: SingleChildScrollView( 
+            Expanded(
+              child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),

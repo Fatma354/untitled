@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Mariam/screenl/screenl/memory.dart';
+import 'package:untitled/Mariam/screenl/screenl/relax.dart';
+import 'package:untitled/Mariam/screenl/screenl/trivial.dart';
 import 'package:untitled/prject2/FilterPage.dart';
 import 'package:untitled/prject2/cartpage.dart';
 import 'package:untitled/prject2/checkout_screen.dart';
 import 'package:untitled/prject2/Product%20View.dart';
 import 'package:untitled/project3/Medical.dart';
-import 'package:untitled/project3/mmm.dart';
-import 'package:untitled/project3/nnn.dart';
+import 'package:untitled/project3/Terms.dart';
+import 'package:untitled/project3/Privacy.dart';
 import 'package:untitled/screen/Add_pyment.dart';
 import 'package:untitled/screen/Delete_Account.dart';
 import 'package:untitled/screen/Doctor.dart';
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //  home: CartPage(),
-      home: Medical(),
+      home: RelaxScreen(),
     );
   }
 }

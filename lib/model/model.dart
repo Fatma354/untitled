@@ -182,7 +182,7 @@ class PolicyItem {
 }
 
 class PolicySectionModel {
-  final IconData icon;
+  final IconData? icon;
   final Color iconColor;
   final String title;
   final List<PolicyItem> items;
@@ -192,5 +192,19 @@ class PolicySectionModel {
     required this.iconColor,
     required this.title,
     required this.items,
+  });
+}
+
+///////////////// Medical //////////////////
+// 1. تعريف الموديل
+class MedicalInfo {
+  final IconData icon;
+  final String title;
+  final String desc;
+
+  const MedicalInfo({
+    required this.icon,
+    required this.title,
+    required this.desc,
   });
 }

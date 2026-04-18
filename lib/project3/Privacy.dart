@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/model/model.dart';
-import 'package:untitled/project3/nn2.dart';
+import 'package:untitled/project3/Policy.dart';
 
 class Privacy extends StatelessWidget {
   const Privacy({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // بيانات الأقسام
     final List<PolicySectionModel> policySections = [
       PolicySectionModel(
         icon: Icons.info_outline,
         iconColor: Colors.blue,
+
         title: '1. Information We Collect',
         items: [
           PolicyItem(
@@ -75,18 +75,29 @@ class Privacy extends StatelessWidget {
         iconColor: Colors.orange,
         title: '4. Security Measures',
         items: [
-          PolicyItem(text: 'We use industry-standard encryption (SSL/TLS).'),
+          // تم إزالة الأيقونات هنا عن طريق تمرير null
+          PolicyItem(
+            text: 'We use industry-standard encryption (SSL/TLS)',
+            icon: Icons.check_circle,
+            iconColor: Colors.transparent,
+          ),
           PolicyItem(
             text:
                 'Protect data transmission. Your medical records are stored securely.',
+            icon: Icons.check_circle,
+            iconColor: Colors.transparent,
           ),
           PolicyItem(
             text:
                 'Stored in HIPAA-compliant cloud databases with strict access controls.',
+            icon: Icons.check_circle,
+            iconColor: Colors.transparent,
           ),
           PolicyItem(
             text:
                 'However, no method of transmission over the internet is 100% secure.',
+            icon: Icons.check_circle,
+            iconColor: Colors.transparent,
           ),
         ],
       ),
@@ -97,7 +108,7 @@ class Privacy extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // الجزء العلوي
+            // الجزء العلوي (Header)
             Container(
               width: double.infinity,
               padding: const EdgeInsets.only(
@@ -153,18 +164,66 @@ class Privacy extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
 
-                  // استدعاء كل قسم
-                  ...policySections.map(
-                    (section) => PolicySectionWidget(section: section),
+                  // عرض الأقسام الأساسية
+                  ...policySections.map((section) => Policy(section: section)),
+
+                  const SizedBox(height: 20),
+
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFE0E4E8),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: const [
+                            Text('🍪', style: TextStyle(fontSize: 20)),
+                            SizedBox(width: 8),
+                            Text(
+                              'Cookie Policy',
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 15),
+                        const Text(
+                          'We use cookies to enhance your experience, remember your preferences, and analyze site traffic. You can choose to disable cookies through your browser settings, though some features of the site may not function properly.',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.black87,
+                            height: 1.5,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
 
                   const SizedBox(height: 30),
+
                   Center(
                     child: OutlinedButton(
                       onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 12,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
                       child: const Text('Contact Privacy Team'),
                     ),
                   ),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

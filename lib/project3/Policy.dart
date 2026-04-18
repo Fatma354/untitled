@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/model/model.dart';
 
-// ويدجيت لبناء كل قسم
-class PolicySectionWidget extends StatelessWidget {
+class Policy extends StatelessWidget {
   final PolicySectionModel section;
 
-  const PolicySectionWidget({super.key, required this.section});
+  const Policy({super.key, required this.section});
 
   @override
   Widget build(BuildContext context) {
@@ -26,26 +25,32 @@ class PolicySectionWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          // القسم العلوي: الأيقونة في الأعلى وتحتها العنوان
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(section.icon, color: section.iconColor),
-              const SizedBox(width: 10),
+              Icon(section.icon, color: section.iconColor, size: 28),
+              const SizedBox(height: 8),
               Text(
                 section.title,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
+                  color: Colors.black,
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 15),
+
+          // القائمة الداخلية (بدون if)
           ...section.items.map(
             (item) => Padding(
               padding: const EdgeInsets.only(bottom: 8.0),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // الأيقونة بجانب النص مباشرة
                   Icon(item.icon, size: 16, color: item.iconColor),
                   const SizedBox(width: 8),
                   Expanded(
